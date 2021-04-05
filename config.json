@@ -1,6 +1,7 @@
 {
     "prefix":"!",
     "name":"rika",
+    "version":"1.0.0",
     "commands":{
         "cookie":"cookie",
         "status": "status"

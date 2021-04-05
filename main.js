@@ -2,11 +2,16 @@ const Discord = require('discord.js');
 const client = new Discord.Client();
 const dev = require('./dev.json');
 const config = require('./config.json');
+var servers = 0
+var users = 0
 
 // Bot's Script Zone
 
-client.on('ready', () => {
+client.on('ready', async () => {
   console.log(`Logged in as ${client.user.tag}!`);
+  servers = await client.guilds.cache.size
+  users = await client.users.cache.size
+  client.user.setActivity(`in ${servers} servers and serving ${users}`, {type: 'PLAYING',});
 });
 
 client.on('message', msg => {
@@ -41,10 +46,8 @@ const status = new Discord.MessageEmbed()
   .setColor('#2185A9')
   .setTitle('Status')
   .setThumbnail('https://github.com/kurikawaii/rika/rika.png')
-  .setDescription('Real time status of Rika')
-  .addFields(
-    {name: 'Servers:', value: `Actually I'm on ... servers !`},
-    {name: 'Version:', value: '...'}
-  )
+  .setDescription('Status of Rika')
+  .addField('Servers', `${servers}`)
+  .addField('Version', config.version)
 
 client.login(dev.token);
