@@ -16,6 +16,17 @@ client.on('message', msg => {
   if(msg.content.toLowerCase() === config.prefix + config.commands.hello) {
       msg.channel.send('Hello');
   }
+  if(msg.content.toLowerCase().startsWith(config.prefix + config.name)) {
+      msg.reply(selectArg(msg.content, 0))
+  }
 });
+
+// Functions Zone
+function selectArg(str, slice) {
+    let args = str.split(' ');
+    // The first element will always be the trigger, so don't care
+    let useless = args.shift();
+    return args[slice];
+}
 
 client.login(dev.token);
