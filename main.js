@@ -2,16 +2,15 @@ const Discord = require('discord.js');
 const client = new Discord.Client();
 const dev = require('./dev.json');
 const config = require('./config.json');
-var servers = 0
-var users = 0
+// Moderations -> Mod
+const mod = require('./mod.js');
 
 // Bot's Script Zone
 
 client.on('ready', async () => {
   console.log(`Logged in as ${client.user.tag}!`);
-  servers = await client.guilds.cache.size
-  users = await client.users.cache.size
-  client.user.setActivity(`in ${servers} servers and serving ${users} peoples`, {type: 'PLAYING',}
+  let servers = await client.guilds.cache.size
+  client.user.setActivity(`in ${servers} servers`, {type: 'PLAYING',}
 );
   
 client.on('message', msg => {
@@ -25,8 +24,7 @@ client.on('message', msg => {
               msg.channel.send(':cookie:')
             case config.commands.status:
               msg.channel.send(status)
-          }
-      }
+      }}
       else {
         msg.channel.send(`${arg1} is not in the command list`)
       }
