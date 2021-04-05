@@ -2,6 +2,6 @@
     "prefix":"!",
     "name":"rika",
     "commands":{
-        "hello":"hw"
+        "cookie":"cookie"
     }
 }

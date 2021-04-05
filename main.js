@@ -10,14 +10,12 @@ client.on('ready', () => {
 });
 
 client.on('message', msg => {
-  if (msg.content.toLowerCase() === 'ping') {
-    msg.reply('Pong!');
-  }
-  if(msg.content.toLowerCase() === config.prefix + config.commands.hello) {
-      msg.channel.send('Hello');
-  }
-  if(msg.content.toLowerCase().startsWith(config.prefix + config.name)) {
-      msg.reply(selectArg(msg.content, 0))
+  // I work only with message in lower case, so it will be easier
+  let message = msg.content.toLowerCase()
+  if(message.startsWith(config.prefix + config.name)) {
+      if(selectArg(message, 0) === config.commands.cookie) {
+          msg.reply(':cookie:')
+      }
   }
 });
 
