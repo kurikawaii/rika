@@ -1,0 +1,7 @@
+{
+    "prefix":"!",
+    "name":"rika",
+    "commands":{
+        "hello":"hw"
+    }
+}
