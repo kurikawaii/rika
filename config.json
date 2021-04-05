@@ -2,6 +2,7 @@
     "prefix":"!",
     "name":"rika",
     "commands":{
-        "cookie":"cookie"
+        "cookie":"cookie",
+        "status": "status"
     }
 }

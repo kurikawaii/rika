@@ -13,8 +13,11 @@ client.on('message', msg => {
   // I work only with message in lower case, so it will be easier
   let message = msg.content.toLowerCase()
   if(message.startsWith(config.prefix + config.name)) {
-      if(selectArg(message, 0) === config.commands.cookie) {
-          msg.reply(':cookie:')
+      if(selectArg(message, 0) in config.commands) {
+          switch(selectArg(message, 0)) {
+            case config.commands.cookie:
+              msg.channel.send(':cookie:')
+          }
       }
   }
 });
