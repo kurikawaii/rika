@@ -13,11 +13,17 @@ client.on('message', msg => {
   // I work only with message in lower case, so it will be easier
   let message = msg.content.toLowerCase()
   if(message.startsWith(config.prefix + config.name)) {
-      if(selectArg(message, 0) in config.commands) {
-          switch(selectArg(message, 0)) {
+    let arg1 = selectArg(message, 0)
+      if(arg1 in config.commands) {
+          switch(arg1) {
             case config.commands.cookie:
               msg.channel.send(':cookie:')
+            case config.commands.status:
+              msg.channel.send(status)
           }
+      }
+      else {
+        msg.channel.send(`${arg1} is not in the command list`)
       }
   }
 });
@@ -29,5 +35,16 @@ function selectArg(str, slice) {
     let useless = args.shift();
     return args[slice];
 }
+
+// Embeds Zone
+const status = new Discord.MessageEmbed()
+  .setColor('#2185A9')
+  .setTitle('Status')
+  .setThumbnail('http://media.kurikawa.fr/rika.png')
+  .setDescription('Real time status of Rika')
+  .addFields(
+    {name: 'Servers:', value: `Actually I'm on ... servers !`},
+    {name: 'Version:', value: '...'}
+  )
 
 client.login(dev.token);
