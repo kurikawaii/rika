@@ -11,9 +11,9 @@ client.on('ready', async () => {
   console.log(`Logged in as ${client.user.tag}!`);
   servers = await client.guilds.cache.size
   users = await client.users.cache.size
-  client.user.setActivity(`in ${servers} servers and serving ${users}`, {type: 'PLAYING',});
-});
-
+  client.user.setActivity(`in ${servers} servers and serving ${users} peoples`, {type: 'PLAYING',}
+);
+  
 client.on('message', msg => {
   // I work only with message in lower case, so it will be easier
   let message = msg.content.toLowerCase()
@@ -43,11 +43,12 @@ function selectArg(str, slice) {
 
 // Embeds Zone
 const status = new Discord.MessageEmbed()
-  .setColor('#2185A9')
-  .setTitle('Status')
-  .setThumbnail('https://github.com/kurikawaii/rika/rika.png')
-  .setDescription('Status of Rika')
-  .addField('Servers', `${servers}`)
-  .addField('Version', config.version)
+.setColor('#2185A9')
+.setTitle('Status')
+.setThumbnail('https://github.com/kurikawaii/rika/rika.png')
+.setDescription('Status of Rika')
+.addField('Servers', `${servers}`)
+.addField('Version', config.version)
+});
 
 client.login(dev.token);
