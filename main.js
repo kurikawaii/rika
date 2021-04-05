@@ -40,7 +40,7 @@ function selectArg(str, slice) {
 const status = new Discord.MessageEmbed()
   .setColor('#2185A9')
   .setTitle('Status')
-  .setThumbnail('http://media.kurikawa.fr/rika.png')
+  .setThumbnail('https://github.com/kurikawaii/rika/rika.png')
   .setDescription('Real time status of Rika')
   .addFields(
     {name: 'Servers:', value: `Actually I'm on ... servers !`},
